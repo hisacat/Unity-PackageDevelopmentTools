@@ -1,0 +1,22 @@
+{
+  "name": "cat.hisa.package-development-tools",
+  "displayName": "HisaCat's Package Development Tools",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "description": "Tools for developing Unity Tools and Packages",
+  "author": {
+    "name": "HisaCat",
+    "email": "ahisacat@gmail.com",
+    "url": "https://hisa.cat"
+  },
+  "licensesUrl": "https://github.com/hisacat/Unity-PackageDevelopmentTools/blob/main/LICENSE",
+  "license": "MIT",
+  "keywords": [
+    "VRChat",
+    "Patch"
+  ],
+  "legacyFolders": {
+    "Assets\\HisaCat\\VRC\\PackageDevelopmentTools": "d792d98f99f7aaa409c033087a2a029e"
+  },
+  "type": "tool"
+}

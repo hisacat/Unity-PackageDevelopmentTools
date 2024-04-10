@@ -1,0 +1,17 @@
+{
+    "name": "cat.hisa.package-development-tools.Editor",
+    "references": [
+        "GUID:0ba7ff99e7a1300438e64c7e574698b1"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
