@@ -53,7 +53,7 @@ namespace HisaCat.PackageDevelopmentTools
         {
             if (this.m_PackageManifest != null)
             {
-                if (System.IO.Path.GetFileName(AssetDatabase.GetAssetPath(this.m_PackageManifest)).ToLower() != "package.json")
+                if (System.IO.Path.GetFileName(AssetDatabase.GetAssetPath(this.m_PackageManifest)).Equals("package.json", System.StringComparison.OrdinalIgnoreCase))
                     this.m_PackageManifest = null;
             }
         }
