@@ -34,7 +34,7 @@ namespace HisaCat.PackageDevelopmentTools
             else
             {
                 GUIUtility.systemCopyBuffer = clipboard = string.Join("\r\n", assetGUIDs.Select(e => $"{System.IO.Path.GetFileName(AssetDatabase.GUIDToAssetPath(e))}: {e}"));
-                Debug.Log($"Multiple GUID copied!\r\n{clipboard = string.Join("\r\n", assetGUIDs.Select(e => $"{System.IO.Path.GetFileName(AssetDatabase.GUIDToAssetPath(e))}: <b>{e}</b>"))}");
+                Debug.Log($"Multiple GUID copied:\r\n{clipboard}");
             }
 
             return clipboard;
