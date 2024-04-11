@@ -8,7 +8,7 @@ namespace HisaCat.PackageDevelopmentTools
 {
     public static class AssetGUIDHelper
     {
-        private const string MenuItemName = "Assets/GUID/Copy GUID";
+        private const string MenuItemName = "Assets/Copy GUID";
 
         [MenuItem(MenuItemName, validate = true)]
         public static bool CopySelectedAssetsGUIDValidate() => Selection.assetGUIDs != null && Selection.assetGUIDs.Length > 0;
