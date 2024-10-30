@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixes `package.json` asset cannot be assigned to the `Package Release Settings Asset`.
+
 ### Added
 
 - Copy Asset Type feature.
