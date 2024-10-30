@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace HisaCat.PackageDevelopmentTools
 {
@@ -53,8 +50,11 @@ namespace HisaCat.PackageDevelopmentTools
         {
             if (this.m_PackageManifest != null)
             {
-                if (System.IO.Path.GetFileName(AssetDatabase.GetAssetPath(this.m_PackageManifest)).Equals("package.json", System.StringComparison.OrdinalIgnoreCase))
+                if (System.IO.Path.GetFileName(UnityEditor.AssetDatabase.GetAssetPath(this.m_PackageManifest)).Equals("package.json", System.StringComparison.OrdinalIgnoreCase) == false)
+                {
+                    UnityEditor.EditorUtility.DisplayDialog("Package Development Tools", "Please provide package.json asset.", "Ok");
                     this.m_PackageManifest = null;
+                }
             }
         }
 #endif
