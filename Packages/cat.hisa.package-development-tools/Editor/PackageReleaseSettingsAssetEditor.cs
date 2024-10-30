@@ -25,6 +25,8 @@ namespace HisaCat.PackageDevelopmentTools
             {
                 EditorGUILayout.PropertyField(this.m_PackageManifest);
                 EditorGUILayout.PropertyField(this.m_BoothFiles);
+                EditorGUILayout.HelpBox("This is the list of files to be included in the .zip file for release on Booth.", MessageType.Info);
+                EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
                 EditorGUILayout.PropertyField(this.m_AssetRootFolderForUnitypackage);
             }
             this.serializedObject.ApplyModifiedProperties();
