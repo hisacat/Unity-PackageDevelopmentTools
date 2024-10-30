@@ -8,11 +8,17 @@ namespace HisaCat.PackageDevelopmentTools
 {
     public static class PackageReleaseManager
     {
-        private const string DirectoryKey = "HisaCat.PackageDevelopmentTools.ReleaseManager.SaveDir";
-        public static string SaveDir
+        private const string DirectoryKey = "HisaCat.PackageDevelopmentTools.ReleaseManager.{0}.SaveDir";
+
+        private static string GetDirectoryDir(PackageReleaseSettingsAsset releaseSettings)
         {
-            get => EditorPrefs.GetString(DirectoryKey);
-            set => EditorPrefs.SetString(DirectoryKey, value);
+            var guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(releaseSettings));
+            return EditorPrefs.GetString(string.Format(DirectoryKey, guid));
+        }
+        private static void SetDirectoryDir(PackageReleaseSettingsAsset releaseSettings, string value)
+        {
+            var guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(releaseSettings));
+            EditorPrefs.SetString(string.Format(DirectoryKey, guid), value);
         }
 
         public static void ExportReleases(PackageReleaseSettingsAsset releaseSettings)
@@ -29,9 +35,10 @@ namespace HisaCat.PackageDevelopmentTools
             var assetRootFolderAssetPath = AssetDatabase.GetAssetPath(releaseSettings.AssetRootFolderForUnitypackage);
             var assetRootFolderIOPath = PathUtility.GetAssetIOPath(assetRootFolderAssetPath);
 
-            var saveDir = EditorUtility.SaveFolderPanel($"Save Release {releaseFileName}", string.IsNullOrEmpty(SaveDir) ? null : System.IO.Path.GetDirectoryName(SaveDir), null);
+            var lastSaveDir = GetDirectoryDir(releaseSettings);
+            var saveDir = EditorUtility.SaveFolderPanel($"Save Release {releaseFileName}", string.IsNullOrEmpty(lastSaveDir) ? null : System.IO.Path.GetDirectoryName(lastSaveDir), null);
             if (string.IsNullOrEmpty(saveDir)) return;
-            SaveDir = saveDir;
+            SetDirectoryDir(releaseSettings, saveDir);
 
             var zipPath = System.IO.Path.Combine(saveDir, $"{releaseFileName}.zip");
             var unitypackagePath = System.IO.Path.Combine(saveDir, $"{releaseFileName}.unitypackage");
