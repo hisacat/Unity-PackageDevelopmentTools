@@ -8,7 +8,7 @@ namespace HisaCat.PackageDevelopmentTools
 {
     public static class AssetGUIDHelper
     {
-        private const string MenuItemName = "Assets/GUID/Copy GUID";
+        private const string MenuItemName = "Assets/Copy GUID";
 
         [MenuItem(MenuItemName, validate = true)]
         public static bool CopySelectedAssetsGUIDValidate() => Selection.assetGUIDs != null && Selection.assetGUIDs.Length > 0;
@@ -34,7 +34,7 @@ namespace HisaCat.PackageDevelopmentTools
             else
             {
                 GUIUtility.systemCopyBuffer = clipboard = string.Join("\r\n", assetGUIDs.Select(e => $"{System.IO.Path.GetFileName(AssetDatabase.GUIDToAssetPath(e))}: {e}"));
-                Debug.Log($"Multiple GUID copied!\r\n{clipboard = string.Join("\r\n", assetGUIDs.Select(e => $"{System.IO.Path.GetFileName(AssetDatabase.GUIDToAssetPath(e))}: <b>{e}</b>"))}");
+                Debug.Log($"Multiple GUID copied:\r\n{clipboard}");
             }
 
             return clipboard;
